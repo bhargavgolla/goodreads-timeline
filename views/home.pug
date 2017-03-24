@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Hackathon Starter
+  p.lead A boilerplate for Node.js web applications.
+  hr
+  .row
+    ul.list-group
+      for review in reviews
+        li.list-group-item
+          h4 #{review.book[0].title[0]}
+            span.badge #{review.rating[0]}
+          p #{review.body[0]}
