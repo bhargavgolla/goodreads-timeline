@@ -10,7 +10,7 @@ const goodreads_client = new goodreads.client({
 });
 
 exports.index = (req, res) => {
-  var review = new Array();
+  var reviews = new Array();
   if (req.user && req.user.goodreads) {
     goodreads_client.getSingleShelf({
       userID: req.user.goodreads,
@@ -30,9 +30,6 @@ exports.index = (req, res) => {
       }
     });
   } else {
-    res.render('home', {
-      title: 'Home',
-      reviews: reviews
-    });
+    res.redirect('/login');
   }
 };
